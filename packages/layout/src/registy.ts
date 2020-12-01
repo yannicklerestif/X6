@@ -1,4 +1,4 @@
-import { GridLayout } from './layout'
+import { GridLayout, RandomLayout, GForceLayout } from './layout'
 
 const map: Map<string, any> = new Map()
 
@@ -23,5 +23,10 @@ export const getLayoutByName = (name: string) => {
 }
 
 registLayout('grid', GridLayout)
+registLayout('random', RandomLayout)
+registLayout('gForce', GForceLayout)
 
-export type LayoutOptions = GridLayout.GridLayoutOptions
+export type LayoutOptions =
+  | GridLayout.GridLayoutOptions
+  | RandomLayout.RandomLayoutOptions
+  | GForceLayout.GForceLayoutOptions

@@ -369,6 +369,7 @@ export class GridLayout extends Base {
 
 export namespace GridLayout {
   export interface GridLayoutOptions {
+    name: 'grid'
     begin?: PointTuple
     preventOverlap?: boolean
     preventOverlapPadding?: number

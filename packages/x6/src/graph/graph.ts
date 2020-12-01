@@ -1847,12 +1847,8 @@ export class Graph extends Basecoat<EventArgs> {
 
   // #region layout
 
-  doLayout(
-    name: string,
-    data: Model.FromJSONData,
-    options: Layout.LayoutOptions = {},
-  ) {
-    this.layout.doLayout(name, data, options)
+  doLayout(data: Model.FromJSONData, options: Layout.LayoutOptions) {
+    this.layout.doLayout(data, options)
   }
 
   // #endregion

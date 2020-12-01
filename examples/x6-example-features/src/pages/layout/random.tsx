@@ -40,11 +40,10 @@ export default class Example extends React.Component {
         nodes: data,
       },
       {
-        name: 'grid',
+        name: 'random',
         width: 720,
         height: 560,
-        rows: 5,
-        cols: 6,
+        center: [360, 280],
       },
     )
 
