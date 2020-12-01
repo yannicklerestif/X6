@@ -1,7 +1,5 @@
-export { isString } from './string'
-
-export { isArray } from './array'
-
-export { isNumber, isNaN } from './number'
-
-export { getDegree } from './math'
+export * from './string'
+export * from './array'
+export * from './number'
+export * from './math'
+export * from './object'

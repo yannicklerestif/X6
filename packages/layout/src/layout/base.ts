@@ -1,25 +1,18 @@
-import {
-  NodeConfig,
-  EdgeConfig,
-  GraphData,
-  ComboConfig,
-  IPointTuple,
-} from './types'
+import { Node, Edge, Combo, Model, PointTuple } from './types'
 
-export class BaseLayout {
-  public nodes: NodeConfig[] | null = []
-  public edges: EdgeConfig[] | null = []
-  public combos: ComboConfig[] | null = []
-
-  public positions: IPointTuple[] | null = []
+export class Base {
+  public nodes: Node[] | null = []
+  public edges: Edge[] | null = []
+  public combos: Combo[] | null = []
+  public positions: PointTuple[] | null = []
   public destroyed: boolean = false
 
-  public layout(data: GraphData) {
+  public layout(data: Model) {
     this.init(data)
     this.execute()
   }
 
-  public init(data: GraphData) {
+  public init(data: Model) {
     this.nodes = data.nodes || []
     this.edges = data.edges || []
     this.combos = data.combos || []
@@ -36,10 +29,10 @@ export class BaseLayout {
   }
 
   public destroy() {
-    this.positions = null
     this.nodes = null
     this.edges = null
     this.combos = null
+    this.positions = null
     this.destroyed = true
   }
 }

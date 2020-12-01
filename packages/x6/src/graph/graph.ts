@@ -35,6 +35,7 @@ import { HighlightManager as Highlight } from './highlight'
 import { TransformManager as Transform } from './transform'
 import { ClipboardManager as Clipboard } from './clipboard'
 import { BackgroundManager as Background } from './background'
+import { LayoutManager as Layout } from './layout'
 
 export class Graph extends Basecoat<EventArgs> {
   public readonly options: GraphOptions.Definition
@@ -59,6 +60,7 @@ export class Graph extends Basecoat<EventArgs> {
   public readonly mousewheel: Wheel
   public readonly print: Print
   public readonly format: Format
+  public readonly layout: Layout
 
   public get container() {
     return this.view.container
@@ -89,6 +91,7 @@ export class Graph extends Basecoat<EventArgs> {
     this.mousewheel = this.hook.createMouseWheel()
     this.print = this.hook.createPrintManager()
     this.format = this.hook.createFormatManager()
+    this.layout = this.hook.createLayoutManager()
 
     this.setup()
   }
@@ -1842,6 +1845,18 @@ export class Graph extends Basecoat<EventArgs> {
 
   // #endregion
 
+  // #region layout
+
+  doLayout(
+    name: string,
+    data: Model.FromJSONData,
+    options: Layout.LayoutOptions = {},
+  ) {
+    this.layout.doLayout(name, data, options)
+  }
+
+  // #endregion
+
   // #region dispose
 
   @Basecoat.dispose()
@@ -1866,6 +1881,7 @@ export class Graph extends Basecoat<EventArgs> {
     this.scroller.dispose()
     this.view.dispose()
     this.renderer.dispose()
+    this.layout.dispose()
   }
 
   // #endregion

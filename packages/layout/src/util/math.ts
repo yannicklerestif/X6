@@ -1,9 +1,9 @@
-import { NodeIdxMap, EdgeConfig } from '../types'
-
 export const getDegree = (
   n: number,
-  nodeIdxMap: NodeIdxMap,
-  edges: EdgeConfig[],
+  nodeIdxMap: {
+    [key: string]: number
+  },
+  edges: any[],
 ): number[] => {
   const degrees: number[] = []
   for (let i = 0; i < n; i++) {

@@ -4,22 +4,16 @@
  * this algorithm refers to <cytoscape.js> - https://github.com/cytoscape/cytoscape.js/
  */
 
-import { isString, isArray, isNumber, getDegree, isNaN } from './util'
-import { BaseLayout } from './base'
-import { NodeConfig, EdgeConfig, IPointTuple, NodeIdxMap } from './types'
-
-type Node = NodeConfig & {
-  degree: number
-}
-
-type Edge = EdgeConfig
+import { isString, isArray, isNumber, getDegree, isNaN } from '../util'
+import { Base } from './base'
+import { Node, Edge, PointTuple, IndexMap } from './types'
 
 /**
  * 网格布局
  */
-export default class GridLayout extends BaseLayout {
+export class GridLayout extends Base {
   /** 布局起始点 */
-  public begin: IPointTuple = [0, 0]
+  public begin: PointTuple = [0, 0]
 
   /** prevents node overlap, may overflow boundingBox if not enough space */
   public preventOverlap: boolean = true
@@ -49,7 +43,7 @@ export default class GridLayout extends BaseLayout {
   public edges: Edge[] = []
 
   /** 布局中心 */
-  public center: IPointTuple = [0, 0]
+  public center: PointTuple = [0, 0]
 
   public width: number = 300
 
@@ -116,14 +110,14 @@ export default class GridLayout extends BaseLayout {
     nodes.forEach((node) => {
       layoutNodes.push(node)
     })
-    const nodeIdxMap: NodeIdxMap = {}
+    const nodeIdxMap: IndexMap = {}
     layoutNodes.forEach((node, i) => {
       nodeIdxMap[node.id] = i
     })
     if (
       self.sortBy === 'degree' ||
       !isString(self.sortBy) ||
-      layoutNodes[0][self.sortBy] === undefined
+      (layoutNodes[0] as any)[self.sortBy] === undefined
     ) {
       self.sortBy = 'degree'
       if (isNaN(nodes[0].degree)) {
@@ -212,19 +206,19 @@ export default class GridLayout extends BaseLayout {
         let nodew: number | undefined
         let nodeh: number | undefined
         if (isArray(node.size)) {
-          nodew = node.size[0]
-          nodeh = node.size[1]
+          nodew = (node.size as PointTuple)[0]
+          nodeh = (node.size as PointTuple)[1]
         } else if (isNumber(node.size)) {
-          nodew = node.size
-          nodeh = node.size
+          nodew = node.size as number
+          nodeh = node.size as number
         }
         if (nodew === undefined || nodeh === undefined) {
           if (isArray(self.nodeSize)) {
-            nodew = self.nodeSize[0]
-            nodeh = self.nodeSize[1]
+            nodew = (self.nodeSize as number[])[0]
+            nodeh = (self.nodeSize as number[])[1]
           } else if (isNumber(self.nodeSize)) {
-            nodew = self.nodeSize
-            nodeh = self.nodeSize
+            nodew = self.nodeSize as number
+            nodeh = self.nodeSize as number
           } else {
             nodew = 30
             nodeh = 30
@@ -370,5 +364,23 @@ export default class GridLayout extends BaseLayout {
     }
     node.x = x
     node.y = y
+  }
+}
+
+export namespace GridLayout {
+  export interface GridLayoutOptions {
+    begin?: PointTuple
+    preventOverlap?: boolean
+    preventOverlapPadding?: number
+    condense?: boolean
+    rows?: number
+    cols?: number
+    position?: ((node: Node) => { row: number; col: number }) | undefined
+    nodeSize?: number | number[]
+    sortBy?: string
+    workerEnabled?: boolean
+    center?: PointTuple
+    width?: number
+    height?: number
   }
 }
