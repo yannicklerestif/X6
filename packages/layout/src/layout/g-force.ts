@@ -414,25 +414,22 @@ export namespace GForceLayout {
   export interface GForceLayoutOptions {
     name: 'gForce'
     center?: PointTuple
-    maxIteration?: number
-    edgeStrength?: number | ((d?: any) => number) | undefined
-    nodeStrength?: number | ((d?: any) => number) | undefined
-    coulombDisScale?: number
-    damping?: number
-    maxSpeed?: number
-    minMovement?: number
-    interval?: number
-    factor?: number
-    getMass?: ((d?: any) => number) | undefined
-    getCenter?: ((d?: any, degree?: number) => number[]) | undefined
+    width?: number
+    height?: number
     linkDistance?: number | ((d?: any) => number) | undefined
-    gravity?: number
+    nodeStrength?: number | ((d?: any) => number) | undefined
+    edgeStrength?: number | ((d?: any) => number) | undefined
     preventOverlap?: boolean
     nodeSize?: number | number[] | ((d?: any) => number) | undefined
     nodeSpacing?: number | number[] | ((d?: any) => number) | undefined
+    minMovement?: number
+    maxIteration?: number
+    damping?: number
+    coulombDisScale?: number
+    getMass?: ((d?: any) => number) | undefined
+    getCenter?: ((d?: any, degree?: number) => number[]) | undefined
+    gravity?: number
     tick?: () => void
-    enableTick?: boolean
-    width?: number
-    height?: number
+    workerEnabled?: boolean
   }
 }

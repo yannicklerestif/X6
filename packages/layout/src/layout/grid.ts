@@ -370,18 +370,17 @@ export class GridLayout extends Base {
 export namespace GridLayout {
   export interface GridLayoutOptions {
     name: 'grid'
+    center?: PointTuple
+    width?: number
+    height?: number
     begin?: PointTuple
     preventOverlap?: boolean
+    nodeSize?: number | number[]
     preventOverlapPadding?: number
     condense?: boolean
     rows?: number
     cols?: number
-    position?: ((node: Node) => { row: number; col: number }) | undefined
-    nodeSize?: number | number[]
     sortBy?: string
     workerEnabled?: boolean
-    center?: PointTuple
-    width?: number
-    height?: number
   }
 }

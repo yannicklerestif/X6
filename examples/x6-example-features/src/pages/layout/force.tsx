@@ -59,13 +59,10 @@ export default class Example extends React.Component {
         edges,
       },
       {
-        name: 'gForce',
+        name: 'force',
         width: 720,
         height: 560,
         center: [360, 280],
-        linkDistance: 50,
-        nodeStrength: 30,
-        edgeStrength: 0.1,
         tick: () => {
           graph.fromJSON({
             nodes,

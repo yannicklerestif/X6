@@ -35,19 +35,22 @@
       "tslint -c tslint.json -p ./tsconfig.json --fix"
     ]
   },
-  "dependencies": {},
+  "dependencies": {
+    "d3-force": "^2.0.1"
+  },
   "devDependencies": {
+    "@types/d3-force": "^2.1.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.18.2",
     "lint-staged": "^10.2.2",
     "rimraf": "^3.0.0",
     "tslint": "^6.1.3",
     "tslint-config-airbnb": "^5.11.2",
     "tslint-config-prettier": "^1.18.0",
     "tslint-eslint-rules": "^5.4.0",
-    "typescript": "^4.0.3",
-    "eslint": "^7.11.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-prettier": "^6.7.0",
-    "eslint-plugin-import": "^2.18.2"
+    "typescript": "^4.0.3"
   },
   "contributors": [],
   "license": "MIT",

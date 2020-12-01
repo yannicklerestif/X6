@@ -1,4 +1,4 @@
-import { GridLayout, RandomLayout, GForceLayout } from './layout'
+import { GridLayout, RandomLayout, GForceLayout, ForceLayout } from './layout'
 
 const map: Map<string, any> = new Map()
 
@@ -25,8 +25,10 @@ export const getLayoutByName = (name: string) => {
 registLayout('grid', GridLayout)
 registLayout('random', RandomLayout)
 registLayout('gForce', GForceLayout)
+registLayout('force', ForceLayout)
 
 export type LayoutOptions =
   | GridLayout.GridLayoutOptions
   | RandomLayout.RandomLayoutOptions
   | GForceLayout.GForceLayoutOptions
+  | ForceLayout.ForceLayoutOptions
