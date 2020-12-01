@@ -1,4 +1,10 @@
-import { GridLayout, RandomLayout, GForceLayout, ForceLayout } from './layout'
+import {
+  GridLayout,
+  RandomLayout,
+  GForceLayout,
+  ForceLayout,
+  CircularLayout,
+} from './layout'
 
 const map: Map<string, any> = new Map()
 
@@ -26,9 +32,11 @@ registLayout('grid', GridLayout)
 registLayout('random', RandomLayout)
 registLayout('gForce', GForceLayout)
 registLayout('force', ForceLayout)
+registLayout('circular', CircularLayout)
 
 export type LayoutOptions =
   | GridLayout.GridLayoutOptions
   | RandomLayout.RandomLayoutOptions
   | GForceLayout.GForceLayoutOptions
   | ForceLayout.ForceLayoutOptions
+  | CircularLayout.CircularLayoutOptions
