@@ -4620,6 +4620,16 @@
   dependencies:
     "@types/node" "*"
 
+"@types/d3-force@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/@types/d3-force/-/d3-force-2.1.0.tgz#6a2210f04d02a0862c6b069de91bad904143e7b5"
+  integrity sha512-LGDtC2YADu8OBniq9EBx/MOsXsMcJbEkmfSpXuz6oVdRamB+3CLCiq5EKFPEILGZQckkilGFq1ZTJ7kc289k+Q==
+
+"@types/dagre@^0.7.44":
+  version "0.7.44"
+  resolved "https://registry.npmjs.org/@types/dagre/-/dagre-0.7.44.tgz#8f4b796b118ca29c132da7068fbc0d0351ee5851"
+  integrity sha512-N6HD+79w77ZVAaVO7JJDW5yJ9LAxM62FpgNGO9xEde+KVYjDRyhIMzfiErXpr1g0JPon9kwlBzoBK6s4fOww9Q==
+
 "@types/dargs@^5.1.0":
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/@types/dargs/-/dargs-5.1.0.tgz#06e2c943dadb9167967005ffd467a581a009d347"

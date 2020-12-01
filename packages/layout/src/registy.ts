@@ -4,6 +4,7 @@ import {
   GForceLayout,
   ForceLayout,
   CircularLayout,
+  DagreLayout
 } from './layout'
 
 const map: Map<string, any> = new Map()
@@ -33,6 +34,7 @@ registLayout('random', RandomLayout)
 registLayout('gForce', GForceLayout)
 registLayout('force', ForceLayout)
 registLayout('circular', CircularLayout)
+registLayout('dagre', DagreLayout)
 
 export type LayoutOptions =
   | GridLayout.GridLayoutOptions
@@ -40,3 +42,4 @@ export type LayoutOptions =
   | GForceLayout.GForceLayoutOptions
   | ForceLayout.ForceLayoutOptions
   | CircularLayout.CircularLayoutOptions
+  | DagreLayout.DagreLayoutOptions

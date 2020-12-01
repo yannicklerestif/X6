@@ -36,10 +36,12 @@
     ]
   },
   "dependencies": {
-    "d3-force": "^2.0.1"
+    "d3-force": "^2.0.1",
+    "dagre": "^0.8.5"
   },
   "devDependencies": {
     "@types/d3-force": "^2.1.0",
+    "@types/dagre": "^0.7.44",
     "eslint": "^7.11.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.7.0",
