@@ -37,7 +37,8 @@
   },
   "dependencies": {
     "d3-force": "^2.0.1",
-    "dagre": "^0.8.5"
+    "dagre": "^0.8.5",
+    "ml-matrix": "^6.5.0"
   },
   "devDependencies": {
     "@types/d3-force": "^2.1.0",

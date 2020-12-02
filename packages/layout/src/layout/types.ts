@@ -27,3 +27,10 @@ export type PointTuple = [number, number]
 export type IndexMap = {
   [key: string]: number
 }
+
+export type Matrix = number[]
+
+export type Point = {
+  x: number;
+  y: number;
+}

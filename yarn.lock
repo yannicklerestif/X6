@@ -16961,6 +16961,13 @@ is-alphanumerical@^1.0.0:
     is-alphabetical "^1.0.0"
     is-decimal "^1.0.0"
 
+is-any-array@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/is-any-array/-/is-any-array-0.1.0.tgz#e5a27965e3371610c10c66bca3be37ee177bdf8e"
+  integrity sha512-6Kkl1RnvfdkmXM6ZlP+kELGBMA74Nq5pSOm9gIKDaPRe9KQlIJzonrOgq0Jzn/iElB6F2/olpLgWYeVySzrSRg==
+  dependencies:
+    rollup "^1.31.1"
+
 is-arguments@^1.0.4:
   version "1.0.4"
   resolved "https://registry.npm.taobao.org/is-arguments/download/is-arguments-1.0.4.tgz#3faf966c7cba0ff437fb31f6250082fcf0448cf3"
@@ -21049,6 +21056,36 @@ mkdirp@0.5.x, mkdirp@0.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@^0.5.3, mkdirp@^0
   integrity sha1-2Rzv1i0UNsoPQWIOJRKI1CAJne8=
   dependencies:
     minimist "^1.2.5"
+
+ml-array-max@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/ml-array-max/-/ml-array-max-1.2.0.tgz#141595131fe10208dd89897ce98ab7fd382a3951"
+  integrity sha512-3UH7XCdjINxbtBWj1EuHMeI242Q3uLuC4rTpSybBWUpGjnG/BefAFxmTolUCuXDM59mJ/G/re80CQbaVIuMjQA==
+  dependencies:
+    is-any-array "^0.1.0"
+
+ml-array-min@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/ml-array-min/-/ml-array-min-1.2.0.tgz#6880ea319250a99ec73bc2799ac005c10a0f0489"
+  integrity sha512-Wgf2+lCndLy1SbeOZSUqlkxD9T1CXPT7CIlNGAZRRQI35wsqvfuNtLNH4qKFx8kNjlq3VGXKOSBHeiXR31vaTA==
+  dependencies:
+    is-any-array "^0.1.0"
+
+ml-array-rescale@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.npmjs.org/ml-array-rescale/-/ml-array-rescale-1.3.2.tgz#ebdeaaa84d15f714dbb00e94a6a9336ddcf10413"
+  integrity sha512-kiXwdVCGrer7rLnjR6Q9ZgP6e9rbnmQvYVUMLXyqNg4+zOs+jek8yBupqPZPDr+NvlSE5OuMnfAbP1oA63kHBA==
+  dependencies:
+    is-any-array "^0.1.0"
+    ml-array-max "^1.2.0"
+    ml-array-min "^1.2.0"
+
+ml-matrix@^6.5.0:
+  version "6.5.3"
+  resolved "https://registry.npmjs.org/ml-matrix/-/ml-matrix-6.5.3.tgz#0c4bb26714607cac76d289b943171c7083418eed"
+  integrity sha512-wXrn+ccApJ6gHktxmosOzs6B6M0huadahDpcgPYIAJggpqN7CtV4Vd7zpW6Lel/1oM5yCULcrbRJ1A5gF/GYDA==
+  dependencies:
+    ml-array-rescale "^1.3.2"
 
 modify-values@^1.0.0:
   version "1.0.1"
@@ -27346,6 +27383,15 @@ rollup-plugin-terser@^7.0.2:
     jest-worker "^26.2.1"
     serialize-javascript "^4.0.0"
     terser "^5.0.0"
+
+rollup@^1.31.1:
+  version "1.32.1"
+  resolved "https://registry.npmjs.org/rollup/-/rollup-1.32.1.tgz#4480e52d9d9e2ae4b46ba0d9ddeaf3163940f9c4"
+  integrity sha512-/2HA0Ec70TvQnXdzynFffkjA6XN+1e2pEv/uKS5Ulca40g2L7KuOE3riasHoNVHOsFD5KKZgDsMk1CP3Tw9s+A==
+  dependencies:
+    "@types/estree" "*"
+    "@types/node" "*"
+    acorn "^7.1.0"
 
 rollup@^2.10.5:
   version "2.26.5"
