@@ -1,4 +1,4 @@
-import { Graph, Addon, FunctionExt, Shape } from '@antv/x6'
+import { Graph, Addon, FunctionExt, Shape, Cell } from '@antv/x6'
 import './shape'
 import graphData from './data'
 
@@ -87,7 +87,7 @@ export default class FlowGraph {
           },
         },
       },
-      snapline: true,
+      snapline: false,
       history: true,
       clipboard: {
         enabled: true,
@@ -99,8 +99,13 @@ export default class FlowGraph {
         enabled: true,
         findParent({ node }) {
           const bbox = node.getBBox()
+          // if the moving node is a parent itself, don't try to embed it
+          const data = node.getData<any>()
+          if (data && data.parent) {
+            return []
+          }
           return this.getNodes().filter((node) => {
-            // 只有 data.parent 为 true 的节点才是父节点
+            // only embed into parent nodes
             const data = node.getData<any>()
             if (data && data.parent) {
               const targetBBox = node.getBBox()
@@ -127,21 +132,22 @@ export default class FlowGraph {
       groups: [
         {
           name: 'basic',
-          title: '基础节点',
+          title: 'Basic',
           graphHeight: 180,
         },
         {
           name: 'combination',
-          title: '组合节点',
+          title: 'Combination',
           layoutOptions: {
             columns: 1,
             marginX: 60,
           },
-          graphHeight: 260,
+          // was 260 before I removed c3 (see below)
+          graphHeight: 180,
         },
         {
           name: 'group',
-          title: '节点组',
+          title: 'Group',
           graphHeight: 100,
           layoutOptions: {
             columns: 1,
@@ -164,7 +170,7 @@ export default class FlowGraph {
           ry: 24,
         },
         text: {
-          text: '起始节点',
+          text: 'Rounded',
         },
       },
     })
@@ -172,7 +178,7 @@ export default class FlowGraph {
       shape: 'flow-chart-rect',
       attrs: {
         text: {
-          text: '流程节点',
+          text: 'Rectangle',
         },
       },
     })
@@ -188,7 +194,7 @@ export default class FlowGraph {
           },
         },
         text: {
-          text: '判断节点',
+          text: 'Losange',
           transform: 'rotate(-45deg)',
         },
       },
@@ -239,19 +245,19 @@ export default class FlowGraph {
           ry: 35,
         },
         text: {
-          text: '链接节点',
+          text: 'Circle',
         },
       },
     })
-    
+
     const c1 = graph.createNode({
-      shape: 'flow-chart-image-rect'
+      shape: 'flow-chart-image-rect',
     })
     const c2 = graph.createNode({
-      shape: 'flow-chart-title-rect'
+      shape: 'flow-chart-title-rect',
     })
     const c3 = graph.createNode({
-      shape: 'flow-chart-animate-text'
+      shape: 'flow-chart-animate-text',
     })
 
     const g1 = graph.createNode({
@@ -266,7 +272,8 @@ export default class FlowGraph {
       },
     })
     this.stencil.load([r1, r2, r3, r4], 'basic')
-    this.stencil.load([c1, c2, c3], 'combination')
+    // c3 has... too much animation :)
+    this.stencil.load([c1, c2 /*, c3*/], 'combination')
     this.stencil.load([g1], 'group')
   }
 
@@ -317,12 +324,12 @@ export default class FlowGraph {
       this.showPorts(ports, false)
     })
 
-    graph.on('node:collapse', ({ node, e }) => {
+    graph.on('node:collapse', ({ node, e }: any) => {
       e.stopPropagation()
       node.toggleCollapse()
       const collapsed = node.isCollapsed()
       const cells = node.getDescendants()
-      cells.forEach((n) => {
+      cells.forEach((n: Cell) => {
         if (collapsed) {
           n.hide()
         } else {

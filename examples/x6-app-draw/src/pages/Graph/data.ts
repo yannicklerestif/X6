@@ -11,7 +11,7 @@ const graphData = {
       },
       attrs: {
         text: {
-          text: '起始节点',
+          text: 'Start',
         },
         body: {
           rx: 24,
@@ -115,7 +115,7 @@ const graphData = {
       },
       attrs: {
         text: {
-          text: '流程节点',
+          text: 'Process',
         },
       },
       shape: 'flow-chart-rect',
@@ -241,7 +241,7 @@ const graphData = {
       },
       attrs: {
         text: {
-          text: '链接节点',
+          text: 'Connector',
         },
         body: {
           rx: 35,
@@ -346,7 +346,7 @@ const graphData = {
       },
       attrs: {
         text: {
-          text: '判断节点',
+          text: 'Decision',
           transform: 'rotate(-45deg)',
         },
         'edit-text': {
@@ -499,7 +499,7 @@ const graphData = {
       },
       attrs: {
         text: {
-          text: '判断节点',
+          text: 'Decision',
           transform: 'rotate(-45deg)',
         },
         'edit-text': {
@@ -729,7 +729,7 @@ const graphData = {
       },
       attrs: {
         text: {
-          text: '流程节点',
+          text: 'Process',
         },
       },
       shape: 'flow-chart-rect',
@@ -855,7 +855,7 @@ const graphData = {
       },
       attrs: {
         text: {
-          text: '结束节点',
+          text: 'End',
         },
         body: {
           rx: 24,

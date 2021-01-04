@@ -82,7 +82,7 @@ export default function (props: IProps) {
 
   return (
     <Tabs defaultActiveKey="1">
-      <TabPane tab="节点" key="1">
+      <TabPane tab="Node" key="1">
         <Row align="middle">
           <Col span={8}>Border Color</Col>
           <Col span={14}>
@@ -121,7 +121,7 @@ export default function (props: IProps) {
           </Col>
         </Row>
       </TabPane>
-      <TabPane tab="文本" key="2">
+      <TabPane tab="Text" key="2">
         <Row align="middle">
           <Col span={8}>Font Size</Col>
           <Col span={12}>

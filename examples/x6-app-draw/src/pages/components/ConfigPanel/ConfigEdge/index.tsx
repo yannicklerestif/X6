@@ -67,7 +67,7 @@ export default function (props: IProps) {
 
   return (
     <Tabs defaultActiveKey="1">
-      <TabPane tab="线条" key="1">
+      <TabPane tab="Line" key="1">
         <Row align="middle">
           <Col span={8}>Width</Col>
           <Col span={12}>

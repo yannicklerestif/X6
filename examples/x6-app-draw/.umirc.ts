@@ -1,6 +1,8 @@
 import { defineConfig } from 'umi'
 
 export default defineConfig({
+  // for publication only (won't be used locally)
+  base: 'debug-notes',
   publicPath: './',
   routes: [
     { path: '/', component: '@/pages/index' },
